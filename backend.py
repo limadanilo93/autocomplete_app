@@ -3,32 +3,7 @@ import json
 
 
 class AutoComplete:
-    """
-    It works by building a `WordMap` that stores words to word-follower-count
-    ----------------------------
-    e.g. To train the following statement:
-
-    It is not enough to just know how tools work and what they worth,
-    we have got to learn how to use them and to use them well.
-    And with all these new weapons in your arsenal, we would better
-    get those profits fired up
-
-    we create the following:
-    {   It: {is:1}
-        is: {not:1}
-        not: {enough:1}
-        enough: {to:1}
-        to: {just:1, learn:1, use:2}
-        just: {know:1}
-        .
-        .
-        profits: {fired:1}
-        fired: {up:1}
-    }
-    so the word completion for "to" will be "use".
-    For optimization, we use another store `WordPrediction` to save the
-    predictions for each word
-    """
+   
 
     def __init__(self):
         """
@@ -64,18 +39,7 @@ class AutoComplete:
             )
 
     def train(self, sentence):
-        """
-        Returns - string
-        Input - str: a string of words called sentence
-        ----------
-        Trains the sentence. It does this by creating a map of
-        current words to next words and their counts for each
-        time the next word appears after the current word
-        - takes in the sentence and splits it into a list of words
-        - retrieves the word map and predictions map
-        - creates the word map and predictions map together
-        - saves word map and predictions map to the database
-        """
+       
         cur = self.conn.cursor()
         words_list = sentence.split(" ")
 
